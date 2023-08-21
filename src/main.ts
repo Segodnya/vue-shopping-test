@@ -1,5 +1,17 @@
 import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
+import { createRouter, createWebHistory } from "vue-router";
+import ProductList from "./components/ProductList.vue";
 
-createApp(App).use(router).mount("#app");
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/",
+      component: ProductList,
+    },
+  ],
+});
+
+const app = createApp(ProductList);
+app.use(router);
+app.mount("#app");
